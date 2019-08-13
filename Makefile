@@ -22,7 +22,7 @@ run:
 	$(PROJECT_NAME)
 
 build: vendor
-	GOOS=linux GOARCH=amd64 go build -o binary main.go
+	GOOS=linux GOARCH=amd64 go build -o binary
 	zip binary.zip ./binary
 
 vendor:
