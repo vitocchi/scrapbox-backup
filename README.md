@@ -1,4 +1,7 @@
 # scrapbox-backup
+AWS Lambdaで運用するLambda関数をGolangで作成した。
+一日一回、scrapboxのプロジェクトのバックアップをAWS S3に保存する
+
 KMSでGitHubTokenを暗号化しているので、暗号化したTOKENをそのままgithubに上げれちゃう。便利。
 
 1. GitHubでAccess Tokenを取得
