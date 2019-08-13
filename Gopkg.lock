@@ -15,7 +15,7 @@
   version = "v1.12.1"
 
 [[projects]]
-  digest = "1:7605e87542b7c47cbef17d1f9dbc3af76ff5d33e45260653a7480224a6de3fcc"
+  digest = "1:a1bc1cba7a2dcef5d52e2ab4244200cbef7bb79580add5a917950c9ccc6305b8"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -37,18 +37,23 @@
     "aws/session",
     "aws/signer/v4",
     "internal/ini",
+    "internal/s3err",
     "internal/sdkio",
     "internal/sdkrand",
     "internal/sdkuri",
     "internal/shareddefaults",
     "private/protocol",
+    "private/protocol/eventstream",
+    "private/protocol/eventstream/eventstreamapi",
     "private/protocol/json/jsonutil",
     "private/protocol/jsonrpc",
     "private/protocol/query",
     "private/protocol/query/queryutil",
     "private/protocol/rest",
+    "private/protocol/restxml",
     "private/protocol/xml/xmlutil",
     "service/kms",
+    "service/s3",
     "service/sts",
     "service/sts/stsiface",
   ]
@@ -71,6 +76,7 @@
     "github.com/aws/aws-sdk-go/aws",
     "github.com/aws/aws-sdk-go/aws/session",
     "github.com/aws/aws-sdk-go/service/kms",
+    "github.com/aws/aws-sdk-go/service/s3",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

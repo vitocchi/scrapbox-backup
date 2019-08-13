@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -41,12 +43,30 @@ func (c *scrapBoxClient) getLatestBackupID() (int, error) {
 }
 
 type BackupResponse struct {
-	Backups      []Backup `json:"backups"`
-	BackupEnable bool     `json:"backupEnable"`
+	Backups      []BackupMeta `json:"backups"`
+	BackupEnable bool         `json:"backupEnable"`
 }
 
-type Backup struct {
+type BackupMeta struct {
 	ID int `json:"backuped"`
+}
+
+func (c *scrapBoxClient) getBackupJSON(id int) ([]byte, error) {
+	url := fmt.Sprintf("https://scrapbox.io/api/project-backup/vitocchi/%d.json", id)
+	byteArray, err := c.throwGETRequest(url)
+	if err != nil {
+		return nil, err
+	}
+	return byteArrayToJSON(byteArray)
+}
+
+func byteArrayToJSON(byteArray []byte) ([]byte, error) {
+	var buf bytes.Buffer
+	err := json.Indent(&buf, byteArray, "", "  ")
+	if err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
 }
 
 func (c *scrapBoxClient) throwGETRequest(url string) ([]byte, error) {
