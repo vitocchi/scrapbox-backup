@@ -10,3 +10,5 @@ KMSでGitHubTokenを暗号化しているので、暗号化したTOKENをその�
 4. Lambda関数にKMSを利用するロールをもたせることでLambdaは復号化APIを叩くことができる
 
 5. KMSを利用するロールを持っていなければAccess Tokenを復号化出来ない。
+
+今回はGithubを使わなかったが、scrapboxの認証クッキーについて同様の操作を行っている
